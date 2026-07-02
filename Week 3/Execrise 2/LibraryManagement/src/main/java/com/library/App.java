@@ -1,10 +1,19 @@
 package com.library;
 
-/**
- * Hello world!
- */
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.library.service.BookService;
+
 public class App {
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+        try (ClassPathXmlApplicationContext context =
+                     new ClassPathXmlApplicationContext("applicationContext.xml")) {
+
+            BookService service = context.getBean("bookService", BookService.class);
+
+            service.displayService();
+        }
     }
 }
