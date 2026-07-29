@@ -1,0 +1,45 @@
+<div
+    appHighlight
+    class="card"
+
+    [ngClass]="{
+      passed: course.gradeStatus === 'passed',
+      failed: course.gradeStatus === 'failed',
+      pending: course.gradeStatus === 'pending'
+    }"
+
+    [ngStyle]="{
+      'background-color':
+        course.gradeStatus === 'passed'
+          ? '#e8f5e9'
+          : course.gradeStatus === 'failed'
+          ? '#ffebee'
+          : '#fff8e1'
+    }">
+
+    <h3>{{course.name}}</h3>
+
+    <p><b>Code:</b> {{course.code}}</p>
+
+<p><b>Credits:</b> {{ course.credits | creditLabel }}</p>
+    <button (click)="enrollCourse()">
+        Enroll
+    </button>
+
+    <div [ngSwitch]="course.gradeStatus">
+
+        <p *ngSwitchCase="'passed'" style="color:green">
+            Passed
+        </p>
+
+        <p *ngSwitchCase="'failed'" style="color:red">
+            Failed
+        </p>
+
+        <p *ngSwitchDefault style="color:gray">
+            Pending
+        </p>
+
+    </div>
+
+</div>

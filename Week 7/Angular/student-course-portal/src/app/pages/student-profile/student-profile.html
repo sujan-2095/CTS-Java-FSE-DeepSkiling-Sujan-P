@@ -1,0 +1,60 @@
+<h2>Student Profile</h2>
+
+<form #studentForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <label>Name</label><br>
+
+    <input
+        type="text"
+        name="name"
+        [(ngModel)]="student.name"
+        required
+        #name="ngModel">
+
+    <div *ngIf="name.invalid && name.touched" style="color:red">
+        Name is required.
+    </div>
+
+    <br><br>
+
+    <label>Email</label><br>
+
+    <input
+        type="email"
+        name="email"
+        [(ngModel)]="student.email"
+        required
+        email
+        #email="ngModel">
+
+    <div *ngIf="email.invalid && email.touched" style="color:red">
+        Enter a valid email.
+    </div>
+
+    <br><br>
+
+    <label>Age</label><br>
+
+    <input
+        type="number"
+        name="age"
+        [(ngModel)]="student.age"
+        required
+        min="18"
+        #age="ngModel">
+
+    <div *ngIf="age.invalid && age.touched" style="color:red">
+        Age must be at least 18.
+    </div>
+
+    <br><br>
+
+    <button
+        type="submit"
+        [disabled]="studentForm.invalid">
+
+        Submit
+
+    </button>
+
+</form>
