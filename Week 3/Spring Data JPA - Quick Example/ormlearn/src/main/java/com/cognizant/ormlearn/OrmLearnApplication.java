@@ -15,15 +15,13 @@ import com.cognizant.ormlearn.service.CountryService;
 @SpringBootApplication
 public class OrmLearnApplication {
 
-    private static final Logger LOGGER =
-            LoggerFactory.getLogger(OrmLearnApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrmLearnApplication.class);
 
     private static CountryService countryService;
 
     public static void main(String[] args) {
 
-        ApplicationContext context =
-                SpringApplication.run(OrmLearnApplication.class, args);
+        ApplicationContext context = SpringApplication.run(OrmLearnApplication.class, args);
 
         LOGGER.info("Inside main");
 
